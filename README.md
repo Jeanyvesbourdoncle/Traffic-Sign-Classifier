@@ -252,41 +252,9 @@ It's not a problem because 50<60, we read 50 km/h and not 60 km/h.
 
 We respect the safety rules because 50 is smaller as 60.
 
+Consequently we have 83% of positiv answers.
 
-Consequently we have 83% of positiv answers!
-
-Finally, you can find here the results for the 6 images with the TOP5 probabilities :
-
-opKV2(values=array([[  1.00000000e+00,   1.97020829e-14,   2.38748747e-18, 7.55011224e-19,   9.40625311e-23],
-       [  1.00000000e+00,   2.03783276e-16,   4.45376582e-18, 8.44278725e-22,   1.19208659e-22],
-       [  9.99999881e-01,   1.68885364e-07,   4.49219217e-10, 2.03441333e-10,   4.12875974e-21],
-       [  1.00000000e+00,   3.65123676e-13,   1.58629037e-13, 4.37137949e-15,   9.20459322e-17],
-       [  9.99639153e-01,   3.60730279e-04,   6.44836149e-08, 2.30851054e-08,   4.51440485e-09],
-       [  1.00000000e+00,   9.92240136e-17,   1.14277005e-19, 2.60459101e-22,   2.28205595e-23]], dtype=float32), 
-  
-indices=array([[19, 23, 29, 24, 21],
-       [12, 26, 17, 41, 14],
-       [ 2,  3,  1,  5, 13],
-       [23, 19, 30, 20, 29],
-       [14, 15,  9,  5, 17],
-       [33, 35, 39, 34, 10]], dtype=int32))
-
-
-It's here interestant to analyze the listake for the speed limitation : for the image 3 (MAX 60km/h), we see :
-
- [  9.99999881e-01,   1.68885364e-07,   4.49219217e-10, 2.03441333e-10,   4.12875974e-21],
- 
- AND
- 
- [ 2,  3,  1,  5, 13],
-  
-The MAX speed 60 km/h (3) is the second position with the probablity:  1.68885364e-07
-
-the model detect firstly 50km/H (2) with the probability :  9.99999881e-01
-
-The difference is not too big.
-
-the number 5 and 6 are very similar! We must increase the accuracy of the model for the number present in the speed limitation sign.
+the number 5 and 6 are very similar. We must increase the accuracy of the model for the number present in the speed limitation sign.
 
 
 ----------------------------------------------------------------------------------------
