@@ -1,11 +1,11 @@
-# **Traffic Sign Recognition** 
+## **Traffic Sign Recognition** 
 
 ---
 
 TARGET :
 **Build a Traffic Sign Recognition Project**
 
-The goals / steps of this project are the following:
+The goals / steps of this project are the following :
 
 * Load the data set (see below for links to the project data set)
 
@@ -19,24 +19,18 @@ The goals / steps of this project are the following:
 
 * Summarize the results with a written report
 
-No Pictures are here present, please run the differents cells to visualize the results step by step
 
-This document described perfectly the differents steps of the evaluation : it's more a detailled design of the project and to undertand the design choice!
-
-Every step of the "traffic sign recognition" is perfectly explain in the SW in commentaries
-
-4 Steps are here useful :
 
 --------------------------------------------------------------------------------------------------------
-STEP 0 /Preliminary :
+### STEP 0 /Preliminary :
 
 - Librairies import (pandas, numpy, matplotlib, etc......)
     
 - Load the 3 Sets : Training/Validation/Test Set 
 
 --------------------------------------------------------------------------------------------------------
-STEP 1 : 
-- Global Diagnostic Information (for the project) :
+### STEP 1 : 
+#### Global Diagnostic Information (for the project) :
 
     - Number of training examples = 34799
     
@@ -50,7 +44,7 @@ STEP 1 :
 
 
 
-- Specific Diagnostic information (specific for every image) : 
+#### Specific Diagnostic information (specific for every image) : 
 
     - the size of this image are:  [26 25]
     
@@ -58,17 +52,17 @@ STEP 1 :
 
 
 
-- Data Vizualization :
+#### Data Vizualization :
 
     - Traffic Sign Vizualization : for every classes (43 type of sign) : an image from this class is attached
     
-    - Class Distrubution : 3 plot/histogram (in x : number of classes : 0 ->43, and in y : number of images for this class) are available
+    - Class Distrubution : 3 plot/histogram (in x : number of classes : 0 ->43, and in y : number of images for this class) are       available
     
     - 3 plot /histogram for every data set (training/validation/test)
     
 -----------------------------------------------------------------------------------------------------
-STEP 2 :
-- Preprocessing the data set (2 tasks) :
+### STEP 2 :
+#### Preprocessing the data set (2 tasks) :
 
     - shuffle the image (to be sure that the order of the images is not important)
     
@@ -76,7 +70,7 @@ STEP 2 :
     (this last fonction is implemente in CNN_fonction.py)
    
 --------------------------------------------------------------------------------------------------------  
-- Tensorflow (Hyperparameters and variable initialization) :
+#### Tensorflow (Hyperparameters and variable initialization) :
 
     - variable initialization :
     
@@ -90,7 +84,7 @@ STEP 2 :
 
 
 -----------------------------------------------------------------------------------------------------
-- SW Pipeline for the training Set (Forward Propagation) :
+#### SW Pipeline for the training Set (Forward Propagation) :
 
     - description of the SW pipeline for the traing set, the target is to progressively to decrease the w and the h and increase the depth
     
@@ -127,7 +121,7 @@ STEP 2 :
 |DROPOUT 				|40% deleted to decrease Overfitting			|
 
 ----------------------------------------------------------------------------------
-- Forward propagation of the training set in 4 setps :
+#### Forward propagation of the training set in 4 setps :
 
      - run the forward propagation to calculate the output of the SW pipeline
      
@@ -149,11 +143,11 @@ STEP 2 :
 |-----------------------------------------------------------------------|
 | ADAMS OPTIMIZATION    |comparable Stochastic Grad.Descent             |
 |-----------------------------------------------------------------------|
-| Training operation    |minimize the loss operation with the ADAMS optimizater|
+| Training operation    |minimize the loss operation ADAMS optimizer----|
 
 
 ---------------------------------------------------------------------------------
-- SW Pipeline for the model evaluation (not the same as the training)
+#### SW Pipeline for the model evaluation (not the same as the training)
 
     - measure the prediction : comparaison prediction from the one_hot and the probablity from the softmax
     
@@ -163,7 +157,7 @@ Finally the fonction "evaluate" is implemented (the generic fonction is implemen
 
 
 -------------------------------------------------------------------------------
-- Train Evaluation Model (with the hyperparameters inialized at the beginning of the project) + Final Model Evaluation
+#### Train Evaluation Model (with the hyperparameters inialized at the beginning of the project) + Final Model Evaluation
 
     - Run sequentially every BATCH for every EPOCH and give the result for every EPOCH
     
@@ -174,7 +168,7 @@ Finally the fonction "evaluate" is implemented (the generic fonction is implemen
         
         Test Set = 0.938
         
-        The result are acceptable: the validation set is very good, we don't have problem of OVERFITTING! 
+        The result are acceptable: the validation set is very good, no overfitting problem
         
         The overfitting problem was resolved with the DROPOUT. 
         
@@ -184,7 +178,7 @@ Finally the fonction "evaluate" is implemented (the generic fonction is implemen
         
         
 --------------------------------------------------------------------------------------------------------       
-SW pipeline configuration :
+#### SW pipeline configuration 
 
 You can find here the hyperparameters tuning  to find this result with the commentaries :
 
@@ -196,33 +190,22 @@ You can find here the hyperparameters tuning  to find this result with the comme
    
    dropout = 0.6 # 40% unit in the FC Layer deleted (No dropout for the Convolution and Pooling Layer)
        
-The Beta for the Regularization L2 is not used, because the results are accpetable with the dropout functionnality.
-
-A very small alpha to be sure that I will meet a global minimum. But this solution costs to much time, 
-
-that why alpha is not very small but not very large.
        
-        
-Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. 
-
 I started with the LeNet Architecture. 
 
-The training set accuracy result was OK -> NO problem of underfitting
+The training set accuracy result was OK : no problem of underfitting
 
-The validation accuracy result was not acceptable --> Overfitting problem
+The validation accuracy result was not acceptable : overfitting problem
 
 To resolve this problem, the droput with the probablities 0,6 has been implemented. 
 
-I have follow the recommendations : 
-
-   - at the begining of the model : convolution and pooling (decrease the w and the h) 
-    
-   - at the end full connected layer
+ At the begining of the model : convolution and pooling (decrease the w and the h), and at the end full connected layer
    
 The Depth(MAX 16 before the conversion in unidimesional vector) was always small because the 1x1 convolution was not used!
 
 ---------------------------------------------------------------------------------------
-The results are :
+#### Results
+
    Training Set = 0.995
         
    Validation Set = 0.958
@@ -233,10 +216,8 @@ The results are :
         
    If the training set accuracy is good  but the validation set accuracy no good : overfitting problem
 
-THE RESULTS ARE IN THE FILE ./RESULT!!!
-
 -----------------------------------------------------------
-STEP 3 : Test a Model on New Images
+### STEP 3 : Test a Model on New Images
 
 Here are five German traffic signs that I found on the web:
 
@@ -309,13 +290,7 @@ the number 5 and 6 are very similar! We must increase the accuracy of the model 
 
 
 ----------------------------------------------------------------------------------------
-STEP 4 : 
+### STEP 4 : 
 (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 
-Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-This part was unfornunately not worked (timing problem). 
-
-It's plain to work this part later, because it's very important to sensibilize the people that a neural network is not a "black box" and 
-
-that we can visualize the result of every node in every layer.
+This part was not treated.
